@@ -13,7 +13,7 @@ services:
       - zabbix-network
 
   zabbix-server:
-    image: zabbix/zabbix-server-pgsql:7.2
+    image: zabbix/zabbix-server-pgsql:alpine-7.2-latest
     container_name: zabbix-server
     restart: unless-stopped
     environment:
@@ -31,7 +31,7 @@ services:
       - zabbix-network
 
   zabbix-web:
-    image: zabbix/zabbix-web-nginx-pgsql:7.2
+    image: zabbix/zabbix-web-nginx-pgsql:alpine-7.2-latest
     container_name: zabbix-web
     restart: unless-stopped
     environment:
@@ -47,7 +47,7 @@ services:
       - zabbix-network
 
   zabbix-agent:
-    image: zabbix/zabbix-agent:7.2
+    image: zabbix/zabbix-agent:alpine-7.2-latest
     container_name: zabbix-agent
     restart: unless-stopped
     environment:

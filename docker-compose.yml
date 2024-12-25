@@ -2,6 +2,7 @@ services:
   zabbix-db:
     image: postgres:15
     container_name: zabbix-db
+    restart: unless-stopped
     environment:
       POSTGRES_USER: zabbix
       POSTGRES_PASSWORD: zabbix_password
@@ -10,11 +11,11 @@ services:
       - zabbix-db-data:/var/lib/postgresql/data
     networks:
       - zabbix-network
-    restart: unless-stopped
 
   zabbix-server:
     image: zabbix/zabbix-server-pgsql:latest
     container_name: zabbix-server
+    restart: unless-stopped
     environment:
       DB_SERVER_HOST: zabbix-db
       POSTGRES_USER: zabbix
@@ -28,11 +29,11 @@ services:
       - "10051:10051"
     networks:
       - zabbix-network
-    restart: unless-stopped
 
   zabbix-web:
     image: zabbix/zabbix-web-nginx-pgsql:latest
     container_name: zabbix-web
+    restart: unless-stopped
     environment:
       DB_SERVER_HOST: zabbix-db
       POSTGRES_USER: zabbix
@@ -44,18 +45,17 @@ services:
       - zabbix-server
     networks:
       - zabbix-network
-    restart: unless-stopped
 
   zabbix-agent:
     image: zabbix/zabbix-agent:latest
     container_name: zabbix-agent
+    restart: unless-stopped
     environment:
       ZBX_SERVER_HOST: zabbix-server
     depends_on:
       - zabbix-server
     networks:
       - zabbix-network
-    restart: unless-stopped
 
   caddy:
     image: caddy
@@ -68,6 +68,8 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - zabbix-network
 
 volumes:
   zabbix-db-data:

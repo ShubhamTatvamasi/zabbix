@@ -42,8 +42,6 @@ services:
       PHP_TZ: "Asia/Kolkata" # Adjust this for your timezone
     depends_on:
       - zabbix-server
-    ports:
-      - "8080:8080"
     networks:
       - zabbix-network
     restart: unless-stopped
@@ -59,9 +57,23 @@ services:
       - zabbix-network
     restart: unless-stopped
 
+  caddy:
+    image: caddy
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
 volumes:
   zabbix-db-data:
   zabbix-server-data:
+  caddy_config:
+  caddy_data:
 
 networks:
   zabbix-network:

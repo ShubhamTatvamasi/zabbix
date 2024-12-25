@@ -1,0 +1,3 @@
+zabbix.shubhamtatvamasi.com {
+  reverse_proxy zabbix-web:8080
+}

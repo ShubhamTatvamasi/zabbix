@@ -1,0 +1,14 @@
+serverAddr = "zabbix.example.com"
+serverPort = 7000
+
+[[proxies]]
+name = "zabbix_example_com_http"
+type = "http"
+localPort = 80
+customDomains = ["zabbix.example.com"]
+
+[[proxies]]
+name = "zabbix_example_com_https"
+type = "https"
+localPort = 443
+customDomains = ["zabbix.example.com"]

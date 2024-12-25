@@ -2,6 +2,12 @@ serverAddr = "zabbix.example.com"
 serverPort = 7000
 
 [[proxies]]
+name = "zabbix_server"
+type = "tcp"
+localPort = 10051
+remotePort = 10051
+
+[[proxies]]
 name = "zabbix_example_com_http"
 type = "http"
 localPort = 80

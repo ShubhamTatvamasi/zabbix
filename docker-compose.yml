@@ -47,7 +47,7 @@ services:
       - zabbix-network
 
   zabbix-agent:
-    image: zabbix/zabbix-agent2:alpine-7.2-latest
+    image: zabbix/zabbix-agent:alpine-7.2-latest
     container_name: zabbix-agent
     restart: unless-stopped
     environment:

@@ -1,5 +1,7 @@
 # zabbix
 
+https://www.zabbix.com/download
+
 Default Credentials: \
 Username: `Admin` \
 Password: `zabbix`

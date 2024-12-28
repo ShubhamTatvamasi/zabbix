@@ -1,7 +1,8 @@
 # zabbix
 
 https://www.zabbix.com/download \
-https://www.zabbix.com/documentation/current/en/manual
+https://www.zabbix.com/documentation/current/en/manual \
+https://sbcode.net/zabbix/
 
 Default Credentials: \
 Username: `Admin` \

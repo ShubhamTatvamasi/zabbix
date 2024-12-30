@@ -1,9 +1,9 @@
 ---
-- name: Install Zabbix Agent Repo
+- name: Add Zabbix Agent Repo {{ zabbix_agent_version }}
   apt:
     deb: https://repo.zabbix.com/zabbix/{{ zabbix_agent_version }}/release/{{ ansible_distribution | lower }}/pool/main/z/zabbix-release/zabbix-release_latest_{{ zabbix_agent_version }}+{{ ansible_distribution | lower }}{{ ansible_distribution_version }}_all.deb
 
-- name: Install Zabbix Agent
+- name: Install Zabbix Agent {{ zabbix_agent_version }}
   apt:
     update_cache: yes
     name: zabbix-agent

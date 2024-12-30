@@ -1,0 +1,8 @@
+---
+- import_tasks: install-zabbix-agent.yml
+  become: yes
+- import_tasks: generate-psk-secret.yml
+  become: yes
+- import_tasks: restart-zabbix-agent.yml
+  become: yes
+- import_tasks: output.yml

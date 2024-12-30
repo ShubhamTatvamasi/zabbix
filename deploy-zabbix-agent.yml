@@ -1,0 +1,5 @@
+---
+- name: Deploy Zabbix Agent
+  hosts: all
+  roles:
+    - role: zabbix_agent

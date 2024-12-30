@@ -1,0 +1,6 @@
+---
+- name: Update these on Zabbix Server
+  debug:
+    msg:
+      - "{{ zabbix_hostname }}"
+      - "{{ secret_psk['content'] | b64decode | replace('\n', '') }}"

@@ -1,6 +1,7 @@
 # zabbix
 
 https://www.zabbix.com/download \
+https://www.zabbix.com/integrations \
 https://www.zabbix.com/documentation/current/en/manual \
 https://sbcode.net/zabbix/ \
 https://github.com/zabbix/community-templates
